@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="aio logic.customtabcontainer.CustomTabContainer" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Custom Tab Container</name>
+    <description>Use this widget to dynamically set the active tab page using local storage.</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="targetTabCtrl" type="string" required="true">
+                <caption>Tab container name</caption>
+                <description>Enter target tab container name.</description>
+            </property>
+            <property key="moduleName" type="string" required="true">
+                <caption>Module name</caption>
+                <description>Enter module name where the table is added.</description>
+            </property>
+            <property key="currentUserId" type="datasource" isList="true" required="true">
+                <caption>Logged in user id</caption>
+                <description>Enter Current Logged in user id</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
