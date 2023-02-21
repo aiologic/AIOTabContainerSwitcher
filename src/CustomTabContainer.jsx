@@ -1,7 +1,9 @@
 import { Big } from "big.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const CustomTabContainer = ({ targetTabCtrl, currentUserId, moduleName }) => {
+    const [entityId, setEntityId] = useState(window.location.href.split("/")[window.location.href.split("/").length - 1]);
+
     const checkTargetDivPresent = () => {
         const divList = document.getElementsByClassName("mx-name-" + targetTabCtrl);
         if (divList.length === 0) {
@@ -17,12 +19,12 @@ const CustomTabContainer = ({ targetTabCtrl, currentUserId, moduleName }) => {
                 return;
             }
             const liIndix =
-                parseInt(window.localStorage.getItem(`${currentUserId?.items?.[0]?.id}-${moduleName}`, "1"), 10) - 1;
+                parseInt(window.localStorage.getItem(`${currentUserId?.items?.[0]?.id}-${moduleName}-${entityId}`, "1"), 10) - 1;
             document.querySelectorAll(".mx-name-" + targetTabCtrl + " > ul").forEach((ultValue, _ulIndex, _listObj) => {
                 ultValue.querySelectorAll("li").forEach((currentValue, _currentIndex) => {
                     currentValue.addEventListener("click", () => {
                         window.localStorage.setItem(
-                            `${currentUserId?.items?.[0]?.id}-${moduleName}`,
+                            `${currentUserId?.items?.[0]?.id}-${moduleName}-${entityId}`,
                             Big(_currentIndex + 1)
                         );
                     });
@@ -34,7 +36,7 @@ const CustomTabContainer = ({ targetTabCtrl, currentUserId, moduleName }) => {
                 }
             });
         }
-    }, [targetTabCtrl, currentUserId, moduleName]);
+    }, [targetTabCtrl, currentUserId, moduleName, entityId]);
 
     if (targetTabCtrl === undefined || targetTabCtrl.trim() === "") {
         console.error("Target tab container name not specified. Please specify the target tab container name.");
