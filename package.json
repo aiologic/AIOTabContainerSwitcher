@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "C:\\Users\\geeky\\Documents\\Mendix\\AIO Axis-AIOAxis-TabContainer_2",
+    "projectPath": "C:\\Users\\user\\Documents\\Mendix\\AIO Axis-AIOAxis-TabContainer",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },

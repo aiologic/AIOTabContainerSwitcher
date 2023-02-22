@@ -12,9 +12,13 @@
                 <caption>Tab container name</caption>
                 <description>Enter target tab container name.</description>
             </property>
-            <property key="moduleName" type="string" required="true">
-                <caption>Module name</caption>
-                <description>Enter module name where the table is added.</description>
+            <property key="entityName" type="string" required="true">
+                <caption>Entity name</caption>
+                <description>Enter entity name where the table is added.</description>
+            </property>
+             <property key="currentEntityId"  type="datasource" isList="true" required="true">
+                <caption>Entity id</caption>
+                <description>Enter Current entity id</description>
             </property>
             <property key="currentUserId" type="datasource" isList="true" required="true">
                 <caption>Logged in user id</caption>
