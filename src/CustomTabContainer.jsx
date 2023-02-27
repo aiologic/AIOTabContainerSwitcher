@@ -16,8 +16,10 @@ const CustomTabContainer = ({ targetTabCtrl, currentUserId, currentEntityId, ent
                 console.error("Unable find tab pages");
                 return;
             }
+            console.info(`${currentUserId?.items?.[0]?.id}-${entityName}-${currentEntityId?.items?.[0]?.id}`)
             const liIndix =
                 parseInt(window.localStorage.getItem(`${currentUserId?.items?.[0]?.id}-${entityName}-${currentEntityId?.items?.[0]?.id}`, "1"), 10) - 1;
+                console.info("liIndix", liIndix)
             document.querySelectorAll(".mx-name-" + targetTabCtrl + " > ul").forEach((ultValue, _ulIndex, _listObj) => {
                 ultValue.querySelectorAll("li").forEach((currentValue, _currentIndex) => {
                     currentValue.addEventListener("click", () => {
@@ -29,12 +31,14 @@ const CustomTabContainer = ({ targetTabCtrl, currentUserId, currentEntityId, ent
                 });
                 const liList = ultValue.querySelectorAll("li");
                 const li = liList.item(liIndix);
+                console.info("li", li)
                 if (li != null) {
                     li.click();
+                    li.classList.add("active");
                 }
             });
         }
-    }, [targetTabCtrl, currentUserId, entityName, currentEntityId]);
+    }, [targetTabCtrl, currentUserId?.items?.[0]?.id, entityName, currentEntityId?.items?.[0]?.id]);
 
     if (targetTabCtrl === undefined || targetTabCtrl.trim() === "") {
         console.error("Target tab container name not specified. Please specify the target tab container name.");
